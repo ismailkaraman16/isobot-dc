@@ -13,6 +13,9 @@ jobs:
       - name: Install libopus
         run: sudo apt-get install libopus0
 
+      - name: Verify Opus Library
+        run: opusinfo
+
       - name: Install dependencies
         run: |
           python -m venv venv

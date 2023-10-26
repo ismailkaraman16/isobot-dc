@@ -12,6 +12,7 @@ jobs:
 
       - name: Install libopus
         run: sudo apt-get install libopus-dev
+        run: sudo apt-get install libopus0
 
       - name: Install dependencies
         run: |

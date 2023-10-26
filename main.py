@@ -19,7 +19,7 @@ intents.voice_states = True
 activity = discord.Game(name="i!help")
 
 bot = commands.Bot(command_prefix = 'i!', activity=activity, status=discord.Status.online, intents = intents)
-discord.opus.load_opus("libopus") #
+discord.opus.load_opus("libopus0") #
 
 queues = {}
 

@@ -22,8 +22,6 @@ jobs:
       - name: listdir
         run: ls
 
-      - name: Verify Opus Library
-        run: opus
 
       - name: Install dependencies
         run: |

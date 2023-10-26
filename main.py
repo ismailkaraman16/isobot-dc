@@ -8,6 +8,7 @@ import re
 import json
 import random
 import asyncio
+import os
 
 token = "your_discord_bot_token"
 giphyApiKey = "your_giphy_api_key"
@@ -18,8 +19,10 @@ intents.voice_states = True
 
 activity = discord.Game(name="i!help")
 
+current_directory = os.getcwd()
+
 bot = commands.Bot(command_prefix = 'i!', activity=activity, status=discord.Status.online, intents = intents)
-discord.opus.load_opus("libopus0") #
+discord.opus.load_opus(current_directory+"/opus/lib/libopus.so") #
 
 queues = {}
 

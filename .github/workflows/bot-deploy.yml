@@ -16,8 +16,18 @@ jobs:
       - name: Install libopus
         run: sudo apt-get install libopus-dev
 
+      - name: Find Opusinfo
+        run: |
+          opusinfo_path=$(find / -type f -name "opusinfo" 2>/dev/null)
+          if [ -n "$opusinfo_path" ]; then
+            echo "Opusinfo found at $opusinfo_path"
+          else
+            echo "Opusinfo not found"
+            exit 1
+          fi
+
       - name: Verify Opus Library
-        run: opusinfo
+        run: ${{ steps.find-opusinfo.outputs.opusinfo_path }}
 
       - name: Install dependencies
         run: |

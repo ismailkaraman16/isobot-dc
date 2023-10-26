@@ -30,9 +30,10 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Discord bot
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+
         run: |
           source venv/bin/activate
           python main.py
 
-        env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}

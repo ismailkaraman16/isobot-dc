@@ -22,3 +22,4 @@ jobs:
           python main.py
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true

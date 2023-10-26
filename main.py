@@ -10,8 +10,13 @@ import random
 import asyncio
 import os
 
-token = "MTE2MjgzNjc5MDQzMzAzNDMzMA.GEEgxY.EhGLtpEkrwMaacalNKQAmsZLWvHzWMsz2oSX1M"
+token = os.environ.get("BOT_TOKEN")
 giphyApiKey = "your_giphy_api_key"
+
+if token:
+    print("token found successfully")
+else:
+    print("token couldnt found")
 
 intents = discord.Intents.default()
 intents.message_content = True

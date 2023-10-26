@@ -10,7 +10,7 @@ import random
 import asyncio
 import os
 
-token = "your_discord_bot_token"
+token = "MTE2MjgzNjc5MDQzMzAzNDMzMA.GEEgxY.EhGLtpEkrwMaacalNKQAmsZLWvHzWMsz2oSX1M"
 giphyApiKey = "your_giphy_api_key"
 
 intents = discord.Intents.default()

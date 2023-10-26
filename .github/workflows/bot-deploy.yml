@@ -1,8 +1,6 @@
 name: Discord Bot Deployment
 
-on:
-  schedule:
-    - cron: '0 0 * * *'  # Schedule this workflow to run daily at midnight UTC
+on: push
 
 jobs:
   deploy:

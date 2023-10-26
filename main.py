@@ -66,6 +66,13 @@ async def sira(ctx, *args):
 
     await ctx.send(content)
 
+
+@bot.command()
+async def join(ctx):
+    channel = ctx.author.voice.channel
+    await channel.connect()
+    ctx.send("succes")
+
 @bot.command(help="Youtube'dan şarkı aratır")
 async def ara(ctx, *args):
     query = ' '.join(args)
@@ -166,9 +173,6 @@ async def oynat(ctx, url):
     voice_channel = server.voice_client
 
     await loadingMessage.delete()
-
-    voice_channel.play(discord.FFmpegPCMAudio(source="yt-downloaded/"+path), after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx), bot.loop))
-    await ctx.send("**" + path[:-4] + "** çalıyorrrr")
 
     try:
         voice_channel.play(discord.FFmpegPCMAudio(source="yt-downloaded/"+path), after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx), bot.loop))

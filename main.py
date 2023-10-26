@@ -72,14 +72,16 @@ async def ara(ctx, *args):
     try:
         try:
             channel = ctx.author.voice.channel
-        except:
+        except Exception as err:
+            print(err)
             return await ctx.send("Seste değilsin dostum.")
 
         if channel:
             await channel.connect()
         else:
             return await ctx.send("Seste değilsin dostum.")
-    except:
+    except Exception as err:
+        print(err):
         pass
 
     loadingMessage = await ctx.send("Arıyorum...", file=discord.File("loading.gif"))
@@ -101,7 +103,8 @@ async def ara(ctx, *args):
     try:
         voice_channel.play(discord.FFmpegPCMAudio(source="yt-downloaded/"+path), after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx), bot.loop))
         await ctx.send("**" + path[:-4] + "** çalıyorrrr")
-    except:
+    except Exception as err:
+        print(err):
         if ctx.message.guild.id in queues:
             queues[ctx.message.guild.id].append({"name": path, "user": "<@"+str(ctx.author.id)+">"})
         else:
@@ -118,7 +121,8 @@ async def azbidur(ctx):
             voice_channel.pause()
         else:
             await ctx.send("Şarkı çalmıyo zaten?")
-    except:
+    except Exception as err:
+        print(err):
         await ctx.send("Şarkı çalmıyo zaten?")
 
 @bot.command()
@@ -130,7 +134,8 @@ async def devam(ctx):
             voice_channel.resume()
         else:
             await ctx.send("Çalıyo ya zaten?")
-    except:
+    except Exception as err:
+        print(err):
         await ctx.send("Neyi devam ettireyim bro?")
 
 @bot.command(help="Youtube'dan link ile şarkı oynatır")
@@ -138,14 +143,16 @@ async def oynat(ctx, url):
     try:
         try:
             channel = ctx.author.voice.channel
-        except:
+        except Exception as err:
+            print(err):
             await ctx.send("Seste değilsin dostum.")
 
         if channel:
             await channel.connect()
         else:
             await ctx.send("Seste değilsin dostum.")
-    except:
+    except Exception as err:
+        print(err):
         pass
 
     loadingMessage = await ctx.send("Bi saniye canım...", file=discord.File("loading.gif"))
@@ -163,7 +170,8 @@ async def oynat(ctx, url):
     try:
         voice_channel.play(discord.FFmpegPCMAudio(source="yt-downloaded/"+path), after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx), bot.loop))
         await ctx.send("**" + path[:-4] + "** çalıyorrrr")
-    except:
+    except Exception as err:
+        print(err):
         if ctx.message.guild.id in queues:
             queues[ctx.message.guild.id].append({"name": path, "user": "<@"+str(ctx.author.id)+">"})
         else:
@@ -199,14 +207,16 @@ async def oku(ctx, text, lang="tr"):
     try:
         try:
             channel = ctx.author.voice.channel
-        except:
+        except Exception as err:
+            print(err):
             return await ctx.send("Seste değilsin dostum.")
 
         if channel:
             await channel.connect()
         else:
             return await ctx.send("Seste değilsin dostum.")
-    except:
+    except Exception as err:
+        print(err):
         pass
 
     obj = gTTS(text=text, lang=lang, slow=False)
@@ -223,14 +233,16 @@ async def yok(ctx):
     try:
         try:
             channel = ctx.author.voice.channel
-        except:
+        except Exception as err:
+            print(err):
             await ctx.send("Seste değilsin dostum.")
 
         if channel:
             await channel.connect()
         else:
             await ctx.send("Seste değilsin dostum.")
-    except:
+    except Exception as err:
+        print(err):
         pass
 
     server = ctx.message.guild

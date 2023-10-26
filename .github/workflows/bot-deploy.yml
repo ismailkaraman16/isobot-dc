@@ -10,6 +10,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install libopus
+        run: sudo apt-get install libopus-dev
+
       - name: Install dependencies
         run: |
           python -m venv venv

@@ -18,7 +18,7 @@ jobs:
 
       - name: Find Opusinfo
         run: |
-          opusinfo_path=$(find / -type f -name "opusinfo" 2>/dev/null)
+          opusinfo_path=$(find / -type f -name "opus*" 2>/dev/null)
           if [ -n "$opusinfo_path" ]; then
             echo "Opusinfo found at $opusinfo_path"
           else

@@ -10,19 +10,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Opus Tools
-        run: sudo apt-get install opus-tools
-
-      - name: Install libopus
-        run: sudo apt-get install libopus-dev
-
-      - name: cd
-        run: cd ..
-
-      - name: listdir
-        run: ls
-
-
       - name: Install dependencies
         run: |
           python -m venv venv

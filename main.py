@@ -66,13 +66,6 @@ async def sira(ctx, *args):
 
     await ctx.send(content)
 
-
-@bot.command()
-async def join(ctx):
-    channel = ctx.author.voice.channel
-    await channel.connect()
-    ctx.send("succes")
-
 @bot.command(help="Youtube'dan şarkı aratır")
 async def ara(ctx, *args):
     query = ' '.join(args)

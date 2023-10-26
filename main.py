@@ -71,6 +71,10 @@ async def sira(ctx, *args):
 async def join(ctx):
     channel = ctx.author.voice.channel
     await channel.connect()
+
+    server = ctx.message.guild
+    voice_channel = server.voice_client
+
     async with ctx.typing():
         filename = "dibinekadar.mp3"
         voice_channel.play(discord.FFmpegPCMAudio(source=filename))

@@ -1,0 +1,26 @@
+name: Discord Bot Deployment
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Schedule this workflow to run daily at midnight UTC
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Run Discord bot
+        run: |
+          source venv/bin/activate
+          python main.py
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}

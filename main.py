@@ -66,6 +66,16 @@ async def sira(ctx, *args):
 
     await ctx.send(content)
 
+
+@bot.command()
+async def join(ctx):
+    channel = ctx.author.voice.channel
+    await channel.connect()
+    async with ctx.typing():
+        filename = "dibinekadar.mp3"
+        voice_channel.play(discord.FFmpegPCMAudio(source=filename))
+    await ctx.send("**" + filename + "** çalıyorrrr")
+
 @bot.command(help="Youtube'dan şarkı aratır")
 async def ara(ctx, *args):
     query = ' '.join(args)

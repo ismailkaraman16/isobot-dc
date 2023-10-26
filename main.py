@@ -167,6 +167,9 @@ async def oynat(ctx, url):
 
     await loadingMessage.delete()
 
+    voice_channel.play(discord.FFmpegPCMAudio(source="yt-downloaded/"+path), after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx), bot.loop))
+    await ctx.send("**" + path[:-4] + "** çalıyorrrr")
+
     try:
         voice_channel.play(discord.FFmpegPCMAudio(source="yt-downloaded/"+path), after=lambda e: asyncio.run_coroutine_threadsafe(play(ctx), bot.loop))
         await ctx.send("**" + path[:-4] + "** çalıyorrrr")
